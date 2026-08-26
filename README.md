@@ -1,5 +1,7 @@
 # dsh-snapguard · 保卫DSH的神秘大肥鱼
 
+曾经的我沉迷于神秘的dsh皮肤与宠物甚至于梁子恶搞插件，直到有一天我的dsh嘎的一下就死去，我才幡然悔悟，没有备份的机生不是合格的机生······这一世我重携神秘大肥鱼归来，誓要夺回曾经那属于我的一切
+
 面向**非专业用户**的 DSH 插件保险：装插件装崩了？不需要命令行、不需要和 Agent 对话，
 打开 DSH 设置页里的 **「快照守卫 🐋」** 面板，点一下就能倒带。DSH 完全起不来？
 还有**离线 CLI** 救生艇。
@@ -179,3 +181,5 @@ node test/run-mocks.mjs   # 核心逻辑模拟测试（32 用例，CI 同样执�
   通过 `ctx.slots.inject('settings.section')` 注册面板（对齐 dshmarket 的做法）。
 - 安全：所有 POST 走同源 + 回环 + 无转发头校验；快照 id 白名单正则；
   文件写回原子化（temp + rename）；事故记录、状态、快照 id 全部白名单校验。
+
+`本项目由Deepseek Harness+Deepseek-V4-flash-Vision-Exp参与制作`
