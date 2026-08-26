@@ -1,0 +1,7 @@
+# 统一行尾：文本文件一律 LF（跨平台协作、CI 友好）
+* text=auto eol=lf
+
+# 二进制/脚本类
+*.png binary
+*.ico binary
+*.jar binary
