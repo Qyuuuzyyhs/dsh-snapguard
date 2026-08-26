@@ -1,0 +1,23 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [20, 22]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Run core simulation tests
+        run: node test/run-mocks.mjs
+      - name: Syntax check lib
+        run: node --check lib/index.js && node --check lib/core.js && node --check lib/factory.js && node --check lib/guard.js && node --check lib/incidents.js && node --check lib/restart.js && node --check lib/safemode.js && node --check install/guard-cli.mjs

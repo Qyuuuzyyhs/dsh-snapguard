@@ -1,0 +1,58 @@
+{
+  "name": "dsh-snapguard",
+  "description": "快照守护鲸：自动快照、崩溃自愈、一键回滚与恢复出厂设置（面向非专业用户的 DSH 插件保险）",
+  "version": "0.2.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qyuuuzyyhs/dsh-snapguard.git"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "snapshot",
+    "rollback",
+    "factory-reset"
+  ],
+  "files": [
+    "lib",
+    "client",
+    "install",
+    "cordis.patch.yml",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "node test/run-mocks.mjs",
+    "check": "node test/run-mocks.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-theme"
+      ],
+      "platform": "web"
+    }
+  },
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": "./client/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  }
+}

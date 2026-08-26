@@ -1,0 +1,14 @@
+# dsh bundle patch: inserts this plugin into a profile's layer stack.
+# The insert position in the layer stack determines activation order. This
+# bundle is placed (by the installer) before every community plugin so its
+# boot-guard runs before any third-party component can crash the host.
+- insert:
+    - id: snapguard
+      name: 'dsh-snapguard'
+      config:
+        # 保留的快照数量上限（自动清理最旧的）
+        maxSnapshots: 20
+        # 检测到组合文件变化后，稳定多少毫秒才创建快照（防抖）
+        autoSnapshotDebounceMs: 15000
+        # 启动失败后自动回滚并重启的最大次数（之后转为保守模式等待人工）
+        maxAutoRollbacks: 2

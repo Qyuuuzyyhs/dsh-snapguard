@@ -1,0 +1,19 @@
+# 依赖与构建产物
+node_modules/
+
+# 测试残留（会被测试用例创建）
+test/sandbox/
+test/smoke-home/
+
+# 本地运行数据
+.snapguard/
+*.log
+
+# 操作系统 / 编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# npm 发布产物
+*.tgz
